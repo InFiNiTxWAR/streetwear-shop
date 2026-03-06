@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="css/contato.css">
+<title>Contato - Nova Store</title>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+
+body{
+font-family: Arial;
+background:#0f172a;
+color:white;
+margin:0;
+}
+
+header{
+background:#020617;
+padding:20px;
+text-align:center;
+font-size:28px;
+font-weight:bold;
+}
+
+.container{
+max-width:1200px;
+margin:auto;
+padding:30px;
+}
+
+.section{
+margin-bottom:60px;
+}
+
+h2{
+margin-bottom:20px;
+color:#38bdf8;
+}
+
+input, textarea{
+width:100%;
+padding:12px;
+margin-bottom:10px;
+border:none;
+border-radius:6px;
+}
+
+button{
+padding:12px 20px;
+background:#38bdf8;
+border:none;
+border-radius:6px;
+cursor:pointer;
+font-weight:bold;
+}
+
+.contact-buttons a{
+display:inline-block;
+margin:10px;
+padding:12px 20px;
+border-radius:6px;
+text-decoration:none;
+color:white;
+font-weight:bold;
+}
+
+.whatsapp{background:#22c55e;}
+.instagram{background:#ec4899;}
+.email{background:#3b82f6;}
+
+.reviews{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.review{
+background:#1e293b;
+padding:15px;
+border-radius:8px;
+}
+
+.stats{
+display:flex;
+gap:40px;
+flex-wrap:wrap;
+}
+
+.stat{
+background:#1e293b;
+padding:20px;
+border-radius:8px;
+text-align:center;
+flex:1;
+}
+
+canvas{
+background:white;
+padding:20px;
+border-radius:10px;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>Contato - Nova Store</header>
+
+<div class="container">
+
+<!-- CONTATO -->
+<div class="section">
+
+<h2>Entre em Contato</h2>
+
+<form action="mailto:torresfilhodiego@gmail.com" method="POST">
+
+<input type="text" placeholder="Seu nome" required>
+
+<input type="email" placeholder="Seu email" required>
+
+<textarea placeholder="Sua mensagem"></textarea>
+
+<button type="submit">Enviar Mensagem</button>
+
+</form>
+
+<div class="contact-buttons">
+
+<a class="whatsapp" href="https://wa.me/5515991440052" target="_blank">
+Falar no WhatsApp
+</a>
+
+<a class="instagram" href="https://instagram.com/wbz_diego" target="_blank">
+Instagram
+</a>
+
+<a class="email" href="mailto:torresfilhodiego@gmail.com">
+Enviar Gmail
+</a>
+
+</div>
+
+</div>
+
+<!-- ESTATISTICAS -->
+<div class="section">
+
+<h2>Clientes</h2>
+
+<div class="stats">
+
+<div class="stat">
+<h3 id="clientes">0</h3>
+Clientes atendidos
+</div>
+
+<div class="stat">
+<h3>4.8 ⭐</h3>
+Avaliação média
+</div>
+
+<div class="stat">
+<h3>97%</h3>
+Clientes satisfeitos
+</div>
+
+</div>
+
+</div>
+
+<!-- GRAFICO -->
+<div class="section">
+
+<h2>Satisfação dos Clientes</h2>
+
+<canvas id="grafico"></canvas>
+
+</div>
+
+<!-- AVALIAÇÕES -->
+<div class="section">
+
+<h2>Avaliações de Clientes</h2>
+
+<div class="reviews" id="reviews"></div>
+
+</div>
+
+</div>
+
+<script>
+
+fetch("https://jsonplaceholder.typicode.com/comments?_limit=6")
+.then(res => res.json())
+.then(data => {
+
+document.getElementById("clientes").innerText = 1248;
+
+const container = document.getElementById("reviews");
+
+data.forEach(cliente =>{
+
+const div = document.createElement("div");
+
+div.classList.add("review");
+
+div.innerHTML = `
+<h4>${cliente.name}</h4>
+<p>${cliente.body}</p>
+⭐ ⭐ ⭐ ⭐ ⭐
+`;
+
+container.appendChild(div);
+
+});
+
+});
+
+const ctx = document.getElementById("grafico");
+
+new Chart(ctx,{
+type:'pie',
+data:{
+labels:["Muito Satisfeito","Satisfeito","Neutro"],
+datasets:[{
+data:[70,20,10]
+}]
+}
+});
+
+</script>
+
+</body>
+</html>

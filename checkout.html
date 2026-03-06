@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Checkout - NovaStore</title>
+
+<link rel="stylesheet" href="css/checkout.css">
+
+</head>
+
+<body>
+
+<header>
+<div class="logo">🛍 NovaStore</div>
+</header>
+
+<div class="checkout-container">
+
+<!-- ENTREGA -->
+
+<div class="checkout-left">
+
+<h2>Entrega</h2>
+
+<input type="text" placeholder="Nome completo">
+
+<input type="text" placeholder="CEP" id="cep">
+
+<button onclick="calcularFrete()">Calcular Frete</button>
+
+<p id="frete-valor">Frete: R$ 0</p>
+
+<input type="text" placeholder="Endereço">
+<input type="text" placeholder="Número">
+<input type="text" placeholder="Cidade">
+
+</div>
+
+
+<!-- PAGAMENTO -->
+
+<div class="checkout-left">
+
+<h2>Pagamento</h2>
+
+<div class="payment-methods">
+
+<button onclick="selecionarPagamento('cartao')">
+💳 Cartão
+</button>
+
+<button onclick="selecionarPagamento('pix')">
+🟢 PIX
+</button>
+
+</div>
+
+
+<div id="cartao">
+
+<input type="text" placeholder="Número do cartão">
+
+<input type="text" placeholder="Nome no cartão">
+
+<div class="row">
+<input type="text" placeholder="Validade">
+<input type="text" placeholder="CVV">
+</div>
+
+</div>
+
+
+<div id="pix" class="hidden">
+
+<p>Escaneie o QR Code para pagar:</p>
+
+<img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=PIX-NOVASTORE">
+
+<p>Chave PIX: novastore@email.com</p>
+
+</div>
+
+</div>
+
+
+
+<!-- RESUMO -->
+
+<div class="checkout-right">
+
+<h2>Resumo do Pedido</h2>
+
+<div id="pedido"></div>
+
+
+<div class="cupom">
+
+<input type="text" id="cupom" placeholder="Cupom de desconto">
+
+<button onclick="aplicarCupom()">
+Aplicar
+</button>
+
+</div>
+
+
+<div class="totais">
+
+<p>Produtos: R$ <span id="produto-total">0</span></p>
+
+<p>Frete: R$ <span id="frete">0</span></p>
+
+<p>Desconto: R$ <span id="desconto">0</span></p>
+
+<h3>Total: R$ <span id="total">0</span></h3>
+
+</div>
+
+
+<button class="finalizar">
+Finalizar Compra
+</button>
+
+</div>
+
+</div>
+
+
+
+<script>
+
+/* =========================
+   CARRINHO
+========================= */
+
+let carrinho = JSON.parse(localStorage.getItem("carrinho")) || []
+
+let frete = 0
+let desconto = 0
+
+
+function renderCarrinho(){
+
+const pedido = document.getElementById("pedido")
+
+pedido.innerHTML = ""
+
+let totalProdutos = 0
+
+carrinho.forEach(produto => {
+
+const div = document.createElement("div")
+
+div.classList.add("item")
+
+div.innerHTML = `
+<p>${produto.nome}</p>
+<p>R$ ${produto.preco}</p>
+`
+
+pedido.appendChild(div)
+
+totalProdutos += produto.preco
+
+})
+
+document.getElementById("produto-total").innerText = totalProdutos
+
+atualizarTotal()
+
+}
+
+
+
+function atualizarTotal(){
+
+const produtoTotal =
+Number(document.getElementById("produto-total").innerText)
+
+const total = produtoTotal + frete - desconto
+
+document.getElementById("total").innerText = total
+
+}
+
+
+
+/* =========================
+   FRETE
+========================= */
+
+function calcularFrete(){
+
+const cep = document.getElementById("cep").value
+
+if(cep){
+
+frete = 20
+
+document.getElementById("frete").innerText = frete
+document.getElementById("frete-valor").innerText = "Frete: R$ " + frete
+
+atualizarTotal()
+
+}
+
+}
+
+
+
+/* =========================
+   CUPOM
+========================= */
+
+function aplicarCupom(){
+
+const cupom = document.getElementById("cupom").value
+
+if(cupom === "NOVA10"){
+
+const produtoTotal =
+Number(document.getElementById("produto-total").innerText)
+
+desconto = produtoTotal * 0.10
+
+document.getElementById("desconto").innerText = desconto.toFixed(2)
+
+alert("Cupom aplicado!")
+
+}
+
+else{
+
+alert("Cupom inválido")
+
+}
+
+atualizarTotal()
+
+}
+
+
+
+/* =========================
+   PAGAMENTO
+========================= */
+
+function selecionarPagamento(tipo){
+
+document.getElementById("cartao").classList.add("hidden")
+document.getElementById("pix").classList.add("hidden")
+
+document.getElementById(tipo).classList.remove("hidden")
+
+}
+
+
+
+/* =========================
+   INICIAR
+========================= */
+
+renderCarrinho()
+
+</script>
+
+</body>
+</html>
