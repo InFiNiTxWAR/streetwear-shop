@@ -1,4 +1,4 @@
-/* RESET */
+
 
 *{
 margin:0;
@@ -12,8 +12,6 @@ background:linear-gradient(120deg,#05070c,#02040a);
 color:white;
 overflow-x:hidden;
 }
-
-/* HEADER */
 
 header{
 display:flex;
@@ -45,7 +43,7 @@ nav a:hover{
 color:#00d4ff;
 }
 
-/* SEARCH */
+/*barra de busca*/
 
 .search-bar{
 padding:8px 12px;
@@ -55,7 +53,7 @@ background:#0f172a;
 color:white;
 }
 
-/* HERO */
+
 
 .hero{
 height:80vh;
@@ -123,7 +121,7 @@ background:#00d4ff;
 color:black;
 }
 
-/* CATEGORIAS */
+/*categoria*/
 
 .categorias{
 padding:80px 8%;
@@ -163,29 +161,6 @@ transform:translateY(-6px);
 box-shadow:0 10px 30px rgba(0,0,0,.5);
 }
 
-/* CARROSSEL */
-
-.carrossel{
-padding:80px 8%;
-}
-
-.carrossel h2{
-font-size:32px;
-text-align:center;
-margin-bottom:40px;
-}
-
-.carrossel-container{
-overflow-x:auto;
-}
-
-.carrossel-track{
-display:flex;
-gap:25px;
-padding-bottom:10px;
-}
-
-/* PRODUTOS GRID */
 
 .produtos{
 padding:80px 8%;
@@ -205,7 +180,7 @@ max-width:1200px;
 margin:auto;
 }
 
-/* PRODUCT CARD */
+
 
 .product-card{
 background:#0f172a;
@@ -234,7 +209,7 @@ border-radius:8px;
 margin-bottom:15px;
 }
 
-/* TITLE */
+
 
 .product-card h3{
 font-size:15px;
@@ -243,7 +218,6 @@ height:40px;
 overflow:hidden;
 }
 
-/* PRICE */
 
 .product-card span{
 font-size:18px;
@@ -252,7 +226,7 @@ font-weight:bold;
 margin-top:auto;
 }
 
-/* BUY BUTTON */
+
 
 .buy-btn{
 margin-top:10px;
@@ -271,7 +245,7 @@ background:#2563eb;
 color:white;
 }
 
-/* FOOTER */
+/*rodape da pagina*/
 
 footer{
 padding:60px;
@@ -298,7 +272,8 @@ text-align:center;
 margin-top:40px;
 
 }
-/* CARROSSEL ANIMADO */
+
+/* ideia descartada, manter css para possivel melhoria*/
 
 .carrossel{
 padding:80px 8%;
@@ -317,7 +292,6 @@ overflow:hidden;
 position:relative;
 }
 
-/* TRACK */
 
 .carrossel-track{
 display:flex;
@@ -326,13 +300,12 @@ width:max-content;
 animation:scrollCarrossel 40s linear infinite;
 }
 
-/* PAUSA QUANDO PASSA O MOUSE */
+
 
 .carrossel-container:hover .carrossel-track{
 animation-play-state:paused;
 }
 
-/* ANIMAÇÃO */
 
 @keyframes scrollCarrossel{
 
@@ -345,7 +318,7 @@ transform:translateX(-50%);
 }
 
 }
-/* CARROSSEL */
+
 
 .carrossel{
 padding:80px 8%;
@@ -358,7 +331,6 @@ font-size:32px;
 margin-bottom:40px;
 }
 
-/* CONTAINER */
 
 .carrossel-container{
 position:relative;
@@ -366,7 +338,7 @@ display:flex;
 align-items:center;
 }
 
-/* WRAPPER */
+
 
 .carrossel-wrapper{
 overflow:hidden;
@@ -374,7 +346,6 @@ width:100%;
 position:relative;
 }
 
-/* GRADIENTE NAS BORDAS */
 
 .carrossel-wrapper::before,
 .carrossel-wrapper::after{
@@ -397,15 +368,13 @@ right:0;
 background:linear-gradient(to left,#020617,transparent);
 }
 
-/* TRACK */
-
 .carrossel-track{
 display:flex;
 gap:25px;
 transition:transform 0.5s ease;
 }
 
-/* CARD */
+
 
 .product-card{
 min-width:220px;
@@ -441,7 +410,7 @@ display:block;
 margin:10px 0;
 }
 
-/* BOTÃO */
+
 
 .buy-btn{
 background:#06b6d4;
@@ -452,7 +421,7 @@ cursor:pointer;
 color:white;
 }
 
-/* SETAS */
+
 
 .arrow{
 position:absolute;
@@ -512,7 +481,7 @@ object-fit:contain;
 margin-bottom:15px;
 }
 
-/* MODAL */
+
 
 .modal{
 position:fixed;
@@ -559,7 +528,7 @@ cursor:pointer;
 margin:6px 0;
 }
 
-/* PAGAMENTO */
+/*formas de pagamento*/
 
 .payment-modal{
 position:fixed;
@@ -598,7 +567,7 @@ border-radius:8px;
 color:white;
 cursor:pointer;
 }
-/* FUNDO ESCURO COM BLUR */
+
 
 .modal{
 position:fixed;
@@ -620,7 +589,7 @@ from{opacity:0}
 to{opacity:1}
 }
 
-/* CAIXA DO PRODUTO */
+
 
 .modal-content{
 background:#020617;
@@ -632,7 +601,7 @@ box-shadow:0 20px 60px rgba(0,0,0,0.6);
 position:relative;
 }
 
-/* GRID */
+
 
 .modal-grid{
 display:grid;
@@ -641,7 +610,6 @@ gap:40px;
 align-items:center;
 }
 
-/* IMAGEM */
 
 .modal img{
 width:100%;
@@ -651,14 +619,13 @@ background:#020617;
 border-radius:10px;
 }
 
-/* TITULO */
 
 #modal-title{
 font-size:28px;
 margin-bottom:10px;
 }
 
-/* DESCRIÇÃO */
+
 
 #modal-desc{
 color:#cbd5e1;
@@ -666,7 +633,7 @@ line-height:1.5;
 margin-bottom:20px;
 }
 
-/* PREÇOS */
+
 
 .price-area{
 background:#020617;
@@ -681,7 +648,7 @@ margin:5px 0;
 color:#cbd5e1;
 }
 
-/* TOTAL */
+
 
 #final-price{
 font-size:22px;
@@ -690,7 +657,7 @@ margin:15px 0;
 font-weight:600;
 }
 
-/* CUPOM */
+
 
 #cupom{
 padding:10px;
@@ -715,7 +682,7 @@ transition:.2s;
 background:#0891b2;
 }
 
-/* BOTÃO COMPRAR */
+
 
 .buy-now{
 margin-top:10px;
@@ -736,7 +703,8 @@ transform:scale(1.03);
 box-shadow:0 10px 30px rgba(59,130,246,0.4);
 }
 
-/* BOTÃO FECHAR */
+
+
 
 .close{
 position:absolute;

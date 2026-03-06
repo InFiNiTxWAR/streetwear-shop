@@ -20,7 +20,7 @@
 
 <div class="checkout-container">
 
-<!-- ENTREGA -->
+
 
 <div class="checkout-left">
 
@@ -41,7 +41,7 @@
 </div>
 
 
-<!-- PAGAMENTO -->
+
 
 <div class="checkout-left">
 
@@ -88,7 +88,7 @@
 
 
 
-<!-- RESUMO -->
+
 
 <div class="checkout-right">
 
@@ -133,9 +133,7 @@ Finalizar Compra
 
 <script>
 
-/* =========================
-   CARRINHO
-========================= */
+
 
 let carrinho = JSON.parse(localStorage.getItem("carrinho")) || []
 
@@ -189,9 +187,6 @@ document.getElementById("total").innerText = total
 
 
 
-/* =========================
-   FRETE
-========================= */
 
 function calcularFrete(){
 
@@ -210,11 +205,6 @@ atualizarTotal()
 
 }
 
-
-
-/* =========================
-   CUPOM
-========================= */
 
 function aplicarCupom(){
 
@@ -245,9 +235,6 @@ atualizarTotal()
 
 
 
-/* =========================
-   PAGAMENTO
-========================= */
 
 function selecionarPagamento(tipo){
 
@@ -258,11 +245,6 @@ document.getElementById(tipo).classList.remove("hidden")
 
 }
 
-
-
-/* =========================
-   INICIAR
-========================= */
 
 renderCarrinho()
 

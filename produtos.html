@@ -14,7 +14,7 @@
 
 <body>
 
-<!-- HEADER -->
+
 
 <header>
 
@@ -38,7 +38,7 @@ class="search-bar"
 </header>
 
 
-<!-- PRODUTOS -->
+
 
 <section class="produtos-page">
 
@@ -49,7 +49,7 @@ class="search-bar"
 </section>
 
 
-<!-- MODAL PRODUTO -->
+
 
 <div class="modal" id="product-modal">
 
@@ -111,7 +111,7 @@ const modal = document.getElementById("product-modal")
 
 let produtoSelecionado = null
 
-/* BUSCAR PRODUTOS API */
+/* busca do produton pela api */
 
 fetch("https://fakestoreapi.com/products")
 
@@ -148,7 +148,7 @@ grid.appendChild(card)
 })
 
 
-/* ABRIR MODAL */
+
 
 function abrirProduto(produto){
 
@@ -179,7 +179,7 @@ document.getElementById("final-price").innerText =
 }
 
 
-/* FECHAR MODAL */
+
 
 document.getElementById("close-modal").onclick = () => {
 
@@ -188,7 +188,7 @@ modal.style.display = "none"
 }
 
 
-/* CUPOM */
+
 
 document.getElementById("apply-coupon").onclick = () => {
 
@@ -207,7 +207,6 @@ document.getElementById("final-price").innerText =
 }
 
 
-/* COMPRAR */
 
 document.getElementById("buy-now").onclick = () => {
 
@@ -229,7 +228,7 @@ window.location.href = "checkout.html"
 }
 
 
-/* BUSCA */
+
 
 document.getElementById("search").addEventListener("keyup", function(){
 

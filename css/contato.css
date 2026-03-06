@@ -1,4 +1,4 @@
-/* RESET */
+
 
 *{
 margin:0;
@@ -12,7 +12,7 @@ background:#05070c;
 color:white;
 }
 
-/* HEADER */
+
 
 header{
 padding:25px;
@@ -23,15 +23,12 @@ color:#00d4ff;
 border-bottom:1px solid rgba(255,255,255,0.05);
 }
 
-/* CONTAINER */
 
 .container{
 max-width:1200px;
 margin:auto;
 padding:50px 20px;
 }
-
-/* SECTIONS */
 
 .section{
 margin-bottom:60px;
@@ -44,7 +41,7 @@ text-align:center;
 color:#00d4ff;
 }
 
-/* GRID CONTATO */
+
 
 .contact-grid{
 display:grid;
@@ -53,7 +50,7 @@ gap:40px;
 align-items:start;
 }
 
-/* FORM */
+
 
 form{
 background:#0f1117;
@@ -110,7 +107,6 @@ transform:translateY(-2px);
 box-shadow:0 10px 20px rgba(0,212,255,0.4);
 }
 
-/* CONTATO DIRETO */
 
 .contact-buttons{
 display:flex;
@@ -144,8 +140,6 @@ transition:.3s;
 transform:translateY(-3px);
 }
 
-/* STATS */
-
 .stats{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
@@ -173,7 +167,7 @@ color:#00d4ff;
 margin-bottom:8px;
 }
 
-/* GRAFICO */
+
 
 .chart-container{
 
@@ -190,8 +184,6 @@ border-radius:12px;
 border:1px solid rgba(255,255,255,0.05);
 
 }
-
-/* REVIEWS */
 
 .reviews{
 
@@ -233,7 +225,7 @@ color:#00d4ff;
 
 }
 
-/* RESPONSIVO */
+
 
 @media(max-width:900px){
 
